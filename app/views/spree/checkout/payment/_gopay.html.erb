@@ -1,0 +1,46 @@
+<div id="gopay-payment">
+
+	<% @available_gopay_instruments.each do |instrument| %>
+
+
+		<div class="instrument" id="<%= instrument["paymentInstrument"] %>">
+			<label>
+				<%= radio_button_tag "gopay_instrument", instrument["paymentInstrument"] %>
+				
+				<%#
+				There is support only for Czech language labels from the API ... I asked Gopay to improve respond with all posible translations ... But until they make it we have to translate labels of the payment instrumets this way:
+				%>
+				<%= t("spree.gopay.instrument." + instrument["paymentInstrument"]) %>
+				
+				
+				<div class="image">
+					<%= image_tag instrument["image"]["normal"] %>
+				</div>
+			</label>
+
+			<% unless instrument["enabledSwifts"].nil? %>
+				<div class="swifts">
+					<% instrument["enabledSwifts"].each do |swift| %>
+						<div class="swift" id="<%swift["swift"]%>">
+							<label>
+								<%= radio_button_tag "gopay_swift", swift["swift"], :class => "swift" %>
+								
+								<%#
+								There is support only for Czech language labels from the API ... I asked Gopay to improve respond with all posible translations ... But until they make it we have to translate labels of the swifts this way:
+								%>
+								<%= swift["label"].first[1] %>
+								
+								<div class="image">
+									<%= image_tag swift["image"]["normal"] %>
+								</div>
+							</label>
+						</div>
+					<% end %>
+				</div>
+			<% end %>				
+
+		</div>
+
+	<% end %>
+	
+</div>

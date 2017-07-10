@@ -1,0 +1,27 @@
+<% if @order.payments.last.source_type == "Spree::GopayTransaction" %>
+
+	<% case @order.payments.last.state
+	   
+	   when "checkout" %>
+
+		<form action="<%= @order.payments.last.source.gw_url %>" method="post" id="gopay-payment-button">
+		  <button name="pay" type="submit"><%= t("spree.gopay.pay") %></button>
+		  <script type="text/javascript" src="https://gw.sandbox.gopay.com/gp-gw/js/embed.js"></script>
+		</form>
+
+	<% when "pending" %>
+
+		<%= t("spree.gopay.status.pending") %>
+
+	<% when "failed" %>
+
+		<%= t("spree.gopay.status.failed") %>
+		<%= link_to "spree.gopay.renew", new_gopay_transaction_path(@order) %>
+		
+	<% when "completed" %>
+
+		<%= t("spree.gopay.status.completed") %>
+		
+	<% end %>
+
+<% end %>

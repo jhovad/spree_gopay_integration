@@ -1,0 +1,23 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  spree:
+    gopay:
+      pay: "Pay now"
+      renew: "Renew payment"
+      order_description: "Order from %{name}"
+      instrument:
+        PAYMENT_CARD: "Payment cards"
+        BANK_ACCOUNT: "Bank transfer"
+        PRSMS: "Premium SMS"
+        MPAYMENT: "mPayment"
+        PAYSAFECARD: "Paysafecard"
+        SUPERCASH: "superCASH"
+        GOPAY: "GoPay account"
+        PAYPAL: "PayPal account"
+        BITCOIN: "Bitcoin payment"
+      status:
+        pending: "Payment status: Pending. Payment will probably soon confirmed from Gopay gateway. We are waiting for it."
+        failed: "Payment through Gopay gateway failed. You can renew the payment and pay again."
+        completed: "Payment has been successfully completed!"
