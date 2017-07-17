@@ -16,7 +16,7 @@
 	<% when "failed" %>
 
 		<%= t("spree.gopay.status.failed") %>
-		<%= link_to "spree.gopay.renew", new_gopay_transaction_path(@order) %>
+		<%= link_to t("spree.gopay.renew"), new_gopay_transaction_path(@order) %>
 		
 	<% when "completed" %>
 
