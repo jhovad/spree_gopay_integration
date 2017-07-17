@@ -20,7 +20,7 @@ class GopayHelper
         payment.complete!
       when 'PAYMENT_METHOD_CHOSEN'
         if ['_101', '_102', '_3001', '_3002'].include? response['sub_state']
-          payment.pend!
+          payment.pend! unless payment.pending?
         end
       end
     end
