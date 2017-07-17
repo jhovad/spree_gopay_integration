@@ -12,19 +12,5 @@ module Spree
       end
     end
     
-    
-    def new_payment
-            
-      # validates that user is logged in and belongs to this order ? (but what about quest)
-      
-      # if last payment for the order wat the gopay and failed, then ... (maybe it's not so big security issue if someone reinit the failed payment)
-      
-      # params[:order_number]
-      
-      
-      
-    end
-    
-    
   end
 end

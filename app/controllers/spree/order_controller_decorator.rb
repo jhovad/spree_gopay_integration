@@ -12,11 +12,15 @@ Spree::OrdersController.class_eval do
   
   # in case the transaction failed, user can establish the new one
   def new_gopay_transaction
+    puts "a"
     order = Spree::Order.find_by!(number: params[:id])
+    puts "b"
     payment = order.payments.last
+    puts "c"
       
     # check the payment failed
     if payment.state == "failed" && payment.payment_method.kind_of?(Spree::PaymentMethod::Gopay)     
+      puts "d"
       gopay_payment = GopayHelper.prepare_payment(order, request)
       
       # establish the gopay payment
