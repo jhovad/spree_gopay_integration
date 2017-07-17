@@ -18,7 +18,7 @@ en:
         PAYPAL: "PayPal account"
         BITCOIN: "Bitcoin payment"
       status:
-        checkout: "Payment status: Waiting for the payment."
+        checkout: "Payment status: Not paid yet."
         pending: "Payment status: Pending. Payment will probably soon confirmed from Gopay gateway. We are waiting for it."
         failed: "Payment through Gopay gateway failed. You can renew the payment and pay again."
         completed: "Payment has been successfully completed!"

@@ -15,7 +15,7 @@ cs:
         PAYPAL: "PayPal account"
         BITCOIN: "Bitcoin payment"
       status:
-        checkout: "Stav platby: Čeká na platbu."
+        checkout: "Stav platby: Nezaplaceno."
         pending: "Stav platby: Čeká. Platba bude pravděpodobně brzy potvrzena ze strany platební brány GoPay. Čekáme na toto potvrzení."
         failed: "Platba skrze platební bránu GoPay z nějakého důvodu selhala. Obnovte prosím platbu a zkuste ji provést znovu:"
         completed: "Platba byla úspěšně dokončena!"

@@ -18,16 +18,25 @@ class GopayHelper
       when 'PAID'
         payment.started_processing!
         payment.complete!
+      when 'PAYMENT_METHOD_CHOSEN'
+        if ['_101', '_102', '_3001', '_3002'].include? response['sub_state']
+          payment.pend!
+        end
       end
     end
   end
   
   def self.prepare_payment(order, request, allowed_payment_instruments = nil, allowed_swifts = nil)
+    
+    puts allowed_swifts.inspect
+      
     unless allowed_swifts.nil?
       gopay_payment_swift = [allowed_swifts]
     else
       gopay_payment_swift = []
     end
+    
+    puts gopay_payment_swift
     
     # prepare the line items for the request to establish payment
     line_items = Array.new
@@ -58,6 +67,8 @@ class GopayHelper
     
     gopay_payment[:payer].merge!({allowed_payment_instruments: [allowed_payment_instruments]}) unless allowed_payment_instruments.nil?    
     gopay_payment[:payer].merge!({allowed_swifts: gopay_payment_swift}) unless allowed_swifts.nil?
+    
+    puts gopay_payment.inspect
 
     return gopay_payment
   end
