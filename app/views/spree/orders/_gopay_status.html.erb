@@ -3,7 +3,9 @@
 	<% case @order.payments.last.state
 	   
 	   when "checkout" %>
-
+		  
+		<%= t("spree.gopay.status.checkout") %>
+		   
 		<form action="<%= @order.payments.last.source.gw_url %>" method="post" id="gopay-payment-button">
 		  <button name="pay" type="submit"><%= t("spree.gopay.pay") %></button>
 		  <script type="text/javascript" src="https://gw.sandbox.gopay.com/gp-gw/js/embed.js"></script>
