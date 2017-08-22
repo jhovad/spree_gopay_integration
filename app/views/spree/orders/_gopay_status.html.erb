@@ -4,7 +4,7 @@
 	   
 	   when "checkout" %>
 		  
-		<%= t("spree.gopay.status.checkout") %>
+		<p><%= t("spree.gopay.status.checkout") %></p>
 		   
 		<form action="<%= @order.payments.last.source.gw_url %>" method="post" id="gopay-payment-button">
 		  <button name="pay" type="submit"><%= t("spree.gopay.pay") %></button>
@@ -13,16 +13,18 @@
 
 	<% when "pending" %>
 
-		<%= t("spree.gopay.status.pending") %>
+		<p><%= t("spree.gopay.status.pending") %></p>
 
 	<% when "failed" %>
 
-		<%= t("spree.gopay.status.failed") %>
-		<%= link_to t("spree.gopay.renew"), new_gopay_transaction_path(@order) %>
-		
+		<p class="error">
+      <%= t("spree.gopay.status.failed") %>
+		  <%= link_to t("spree.gopay.renew"), new_gopay_transaction_path(@order) %>
+		</p>
+    
 	<% when "completed" %>
 
-		<%= t("spree.gopay.status.completed") %>
+		<p><%= t("spree.gopay.status.completed") %></p>
 		
 	<% end %>
 
