@@ -3,6 +3,8 @@ SpreeGopayIntegration
 
 Spree integration with GoPay offsite payment gateway.
 
+Spree 4.2
+
 **note: This is my very first gem for my first project with Spree, so please have an understanding if something is not perfect. Your contribution or advice what to improve is very welcome!**
 
 - Support only for the standard payment (https://doc.gopay.com/en/#standard-payment)
@@ -63,11 +65,3 @@ Simply add this require statement to your spec_helper:
 require 'spree_gopay_integration/factories'
 ```
 
-
-## Contributing
-
-If you'd like to contribute, please take a look at the
-[instructions](CONTRIBUTING.md) for installing dependencies and crafting a good
-pull request.
-
-Copyright (c) 2017 Josef Hovad / Nobord s.r.o., released under the New BSD License

@@ -1,10 +1,12 @@
-Spree::Admin::PaymentsController.class_eval do
+module SpreeGopayIntegration::Admin::PaymentsControllerDecorator
 
-  after_action :build_gopay_transaction, only: [:create]
+  def self.prepended(base)
+
+    base.after_action :build_gopay_transaction, only: [:create]
+
+  end
   
   def build_gopay_transaction
-    
-    puts "FIRE FIRE FIRE !!!!! 1"
     
     if @payment.payment_method.kind_of?(Spree::PaymentMethod::Gopay)
       
@@ -20,9 +22,9 @@ Spree::Admin::PaymentsController.class_eval do
       @payment.source = transaction
       @payment.save!
       
-      puts "FIRE FIRE FIRE !!!!!"
-      
     end
   end
 
 end
+
+::Spree::Admin::PaymentsController.prepend(SpreeGopayIntegration::Admin::PaymentsControllerDecorator)

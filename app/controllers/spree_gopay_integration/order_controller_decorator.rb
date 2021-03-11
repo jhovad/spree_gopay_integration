@@ -1,6 +1,10 @@
-Spree::OrdersController.class_eval do
-  
-  before_action :check_payment_status, only: :show
+module SpreeGopayIntegration::OrdersControllerDecorator
+
+  def self.prepended(base)
+
+    base.before_action :check_payment_status, only: :show
+
+  end
   
   def check_payment_status
     order = Spree::Order.find_by!(number: params[:id])
@@ -11,3 +15,5 @@ Spree::OrdersController.class_eval do
   end
   
 end
+
+::Spree::OrdersController.prepend(SpreeGopayIntegration::OrdersControllerDecorator)

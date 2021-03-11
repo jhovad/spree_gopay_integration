@@ -22,8 +22,8 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '>= 3.3.0.rc1', '< 4.0'
-  s.add_dependency 'spree_frontend', '~> 3.3.0.rc1'
+  s.add_dependency 'spree_core', '>= 4.2', '< 5.0'
+  s.add_dependency 'spree_frontend', '~> 4.2'
   s.add_dependency 'gopay-ruby', '~> 0.2.0'
 
   s.add_development_dependency 'capybara'

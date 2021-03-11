@@ -1,7 +1,11 @@
-Spree::CheckoutController.class_eval do
+module SpreeGopayIntegration::CheckoutControllerDecorator
 
-  before_action :get_available_gopay_instruments, only: [:update, :edit], if: proc { params[:state].eql?('payment') }
-  before_action :pay_with_gopay, only: :update, if: proc { params[:state].eql?('payment') }
+  def self.prepended(base)
+
+    base.before_action :get_available_gopay_instruments, only: [:update, :edit], if: proc { params[:state].eql?('payment') }
+    base.before_action :pay_with_gopay, only: :update, if: proc { params[:state].eql?('payment') }
+    
+  end
 
   private
   
@@ -38,3 +42,5 @@ Spree::CheckoutController.class_eval do
   end
 
 end
+
+::Spree::CheckoutController.prepend(SpreeGopayIntegration::CheckoutControllerDecorator)

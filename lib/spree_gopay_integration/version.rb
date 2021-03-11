@@ -9,7 +9,7 @@ module SpreeGopayIntegration
 
   module VERSION
     MAJOR = 0
-    MINOR = 1
+    MINOR = 2
     TINY  = 0
     PRE   = 'alpha'.freeze
 
