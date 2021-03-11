@@ -27,7 +27,7 @@ module Spree
       
         # establish the gopay payment
         establish_response = GoPay::Payment.create(gopay_payment)
-  		
+      
         # store important data as *source* of the Payment
         transaction = GopayHelper.create_transaction(establish_response)
       
